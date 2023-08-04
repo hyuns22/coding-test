@@ -1,13 +1,15 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        long a, b, c;
         Scanner sc = new Scanner(System.in);
-        a = sc.nextLong();
-        b = sc.nextLong();
-        c = sc.nextLong();
-        System.out.println(a+b+c);
+        BigInteger A, B, C;
+
+        A = sc.nextBigInteger();
+        B = sc.nextBigInteger();
+        C = sc.nextBigInteger();
+        System.out.println(A.add(B).add(C));
 
     }
 }
