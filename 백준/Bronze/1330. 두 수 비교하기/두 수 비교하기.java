@@ -1,22 +1,14 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int a, b;
         Scanner sc = new Scanner(System.in);
-        a = sc.nextInt();
-        b = sc.nextInt();
-        
-        if (a>b)
-        {
-            System.out.println(">");
-        } 
-        else if (b>a) {
-            System.out.println("<");
-        }
-        else{
-            System.out.println("==");
-        }
-
+        int A, B;
+        A = sc.nextInt();
+        B = sc.nextInt();
+        if(A>B) System.out.println(">");
+        else if(A<B) System.out.println("<");
+        else System.out.println("==");
     }
 }
