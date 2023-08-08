@@ -1,22 +1,28 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
+
+import static java.util.Arrays.stream;
+
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int[] arr = new int[N];
-        for(int i=0; i< arr.length;i++)
-        {
-            arr[i] = sc.nextInt();
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(br.readLine());
+
+        List<Integer> arr = new ArrayList<>();
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for(int i=0; i<N;i++){
+            arr.add(Integer.parseInt(st.nextToken()));
         }
-        int mx = Arrays.stream(arr).max().getAsInt();
-        
-        double sum = 0;
-        for(int i=0; i< arr.length; i++)
-        {
-            sum += (double)arr[i] / mx * 100;
+        int max = Collections.max(arr);
+        double sum =0;
+        for(int grade:arr){
+            sum+=(double)grade/max*100;
         }
         System.out.println(sum/N);
     }
 }
+
+
