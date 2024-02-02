@@ -1,17 +1,20 @@
-n = int(input())
+dp = [[0, 0, 0] for i in range(1001)]
 
-li = [[0]*3]
-dp = [[0]*3 for i in range(n+1)]
-for i in range(n):
-    k = list(map(int, input().split()))
-    li.append(k)
-dp[1] = li[1]
-for i in range(2,n+1):
-    dp[i][0] = min(dp[i-1][1], dp[i-1][2])+li[i][0]
-    dp[i][1] = min(dp[i - 1][0], dp[i - 1][2]) + li[i][1]
-    dp[i][2] = min(dp[i - 1][0], dp[i - 1][1]) + li[i][2]
+T = int(input())
 
-print(min(dp[n]))
+cost = [0]
 
+for i in range(T):
+    a = list(map(int, input().split()))
+    cost.append(a)
+
+dp[1] = cost[1]
+for i in range(2, T+1):
+    dp[i][0] = min(dp[i-1][1], dp[i-1][2])+cost[i][0]
+    dp[i][1] = min(dp[i - 1][0], dp[i - 1][2])+cost[i][1]
+    dp[i][2] = min(dp[i - 1][0], dp[i - 1][1])+cost[i][2]
+
+
+print(min(dp[T]))
 
 
